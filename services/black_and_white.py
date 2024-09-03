@@ -9,7 +9,7 @@ import numpy as np
 class BlackAndWhiteService:
     def __init__(self):
         self.s3_service = S3Service()
-        self.image_dir = settings.CARTOONIZATION_DIR
+        self.image_dir = settings.BLACK_AND_WHITE_DIR
 
     def convert(self, image: Image.Image, image_name: str):
         image = np.array(image)
