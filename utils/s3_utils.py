@@ -1,6 +1,6 @@
 import boto3
 from botocore.exceptions import NoCredentialsError
-from app.core.settings import settings
+from core.settings import settings
 from PIL import Image
 from io import BytesIO
 import uuid
@@ -21,7 +21,7 @@ class S3Service:
             image.save(buffer, format=format)
             buffer.seek(0)
 
-            object_name = image_name + '_' + str(uuid.uuid1()) + format.lower()
+            object_name = image_name + '_' + str(uuid.uuid1()) + '.' + format.lower()
 
             # s3에 업로드
             image_path = f"{image_dir}/{object_name}"
