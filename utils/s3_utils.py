@@ -12,9 +12,9 @@ class S3Service:
             aws_access_key_id=settings.AWS_ACCESS_KEY,
             aws_secret_access_key=settings.AWS_SECRET_KEY
         )
-        self.bucket_name = settings.AWS_S3_BUCKET
+        self.bucket_name = settings.AWS_S3_IMAGE_BUCKET
 
-    def upload_image_to_s3(self, image: Image.Image, image_dir: str, image_name: str, bucket: str = settings.AWS_S3_BUCKET, format='JPEG'):
+    def upload_image_to_s3(self, image: Image.Image, image_dir: str, image_name: str, bucket: str = settings.AWS_S3_IMAGE_BUCKET, format='JPEG'):
         try:
             # 메모리에 이미지를 저장한 후, 이를 s3에 업로드
             buffer = BytesIO()
