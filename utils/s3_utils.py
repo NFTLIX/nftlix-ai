@@ -1,6 +1,6 @@
 import boto3
 from botocore.exceptions import NoCredentialsError
-from app.core.settings import settings
+from core.settings import settings
 from PIL import Image
 from io import BytesIO
 import uuid

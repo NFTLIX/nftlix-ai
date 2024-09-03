@@ -1,9 +1,9 @@
 import cv2
-from app.utils.s3_utils import S3Service
+from utils.s3_utils import S3Service
 from PIL import Image
-from app.exceptions import ImageException
-from app.schemas import ImageResponse
-from app.core.settings import settings
+from exceptions import ImageException
+from schemas import ImageResponse
+from core.settings import settings
 
 class CartoonizationService:
     def __init__(self):
