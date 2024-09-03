@@ -12,12 +12,12 @@
 
 ## 🔗 Download (Docker image)
 ```bash
-$ docker pull ghcr.io/nftlix/nftlix-ai:0.1
+docker pull ghcr.io/nftlix/nftlix-ai:0.1
 ```
 
 ## 🪄 Usage
 ```bash
-$ docker run -p 8000:8000 \
+docker run -p 8000:8000 \
   -e AWS_ACCESS_KEY=your-aws-access-key \
   -e AWS_SECRET_KEY=your-aws-secret-key \
   -e AWS_S3_IMAGE_BUCKET=your-aws-s3-image-bucket \
