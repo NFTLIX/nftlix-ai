@@ -1,8 +1,7 @@
 from pydantic import BaseModel, HttpUrl
 
 class ImageResponse(BaseModel):
-    def __init__(self, image_url: HttpUrl):
-        self.image_url = image_url
+    image_url: HttpUrl
 
     class Config:
         schema_extra = {
