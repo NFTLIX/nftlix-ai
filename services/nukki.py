@@ -9,7 +9,7 @@ from rembg import remove
 class NukkiService:
     def __init__(self):
         self.s3_service = S3Service()
-        self.image_dir = settings.CARTOONIZATION_DIR
+        self.image_dir = settings.NUKKI_DIR
 
     def convert(self, image: Image.Image, image_name: str):
         converted_img = remove(np.array(image))
