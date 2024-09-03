@@ -17,7 +17,6 @@ class NukkiService:
         upload_result = self.s3_service.upload_image_to_s3(image=Image.fromarray(converted_img), image_dir=self.image_dir, image_name=image_name, format='PNG')
 
         # s3 업로드 도중 에러 발생 시 ImageException 예외 발생
-        # TODO: exception handler 구현 필요
         if upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
