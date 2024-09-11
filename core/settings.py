@@ -12,5 +12,6 @@ class Settings(BaseSettings):
     BLACK_AND_WHITE_DIR: str = os.getenv("BLACK_AND_WHITE_DIR")
     CARTOONIZATION_DIR: str = os.getenv("CARTOONIZATION_DIR")
     NUKKI_DIR: str = os.getenv("NUKKI_DIR")
+    ORIGINAL_DIR: str = os.getenv("ORIGINAL_DIR")
 
 settings = Settings()
