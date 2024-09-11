@@ -11,7 +11,7 @@ class NukkiService:
     def __init__(self):
         self.s3_service = S3Service()
         self.image_dir = settings.NUKKI_DIR
-        self.original_dir = settings.ORINGLAS_DIR
+        self.original_dir = settings.ORIGINAL_DIR
 
     def convert(self, image: Image.Image, image_name: str, description: str, name: str, token_id: str):
         # 1. 원본 이미지 저장
