@@ -21,6 +21,8 @@ class NukkiService:
         if upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
+        original_image_url = upload_result['url']
+
         # 2. 변환된 이미지 저장
         converted_img = remove(np.array(image))
 
@@ -37,4 +39,4 @@ class NukkiService:
         if metadata_upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
-        return ImageResponse(image_url=upload_result['url'], metadata_url=metadata_upload_result['url'])
+        return ImageResponse(original_image_url=original_image_url, converted_image_url=upload_result['url'], metadata_url=metadata_upload_result['url'])

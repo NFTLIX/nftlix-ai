@@ -21,6 +21,8 @@ class CartoonizationService:
         if upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
+        original_image_url = upload_result['url']
+
         # 2. 변환된 이미지 저장
         # sigma_r 값이 줄어들 수록 윤곽이 더 뚜렷해지는 효과
         converted_img = cv2.stylization(np.array(image), sigma_s=100, sigma_r=0.5)
@@ -36,4 +38,4 @@ class CartoonizationService:
         if metadata_upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
-        return ImageResponse(image_url=upload_result['url'], metadata_url=metadata_upload_result['url'])
+        return ImageResponse(original_image_url=original_image_url, converted_image_url=upload_result['url'], metadata_url=metadata_upload_result['url'])

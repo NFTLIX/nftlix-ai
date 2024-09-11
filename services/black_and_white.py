@@ -21,6 +21,8 @@ class BlackAndWhiteService:
         if upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
+        original_image_url = upload_result['url']
+
         # 2. 변환된 이미지 저장
         image = np.array(image)
         converted_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -38,4 +40,4 @@ class BlackAndWhiteService:
         if metadata_upload_result['status'] == 'error':
             raise ImageException(image_name=image_name, message=upload_result['message'])
 
-        return ImageResponse(image_url=upload_result['url'], metadata_url=metadata_upload_result['url'])
+        return ImageResponse(original_image_url=original_image_url, image_url=upload_result['url'], metadata_url=metadata_upload_result['url'])
