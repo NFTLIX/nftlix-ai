@@ -11,8 +11,17 @@ class NukkiService:
     def __init__(self):
         self.s3_service = S3Service()
         self.image_dir = settings.NUKKI_DIR
+        self.original_dir = settings.ORINGLAS_DIR
 
     def convert(self, image: Image.Image, image_name: str, description: str, name: str, token_id: str):
+        # 1. 원본 이미지 저장
+        upload_result = self.s3_service.upload_image_to_s3(image=image, image_dir=self.original_dir, image_name=image_name)
+
+        # s3 업로드 도중 에러 발생 시 ImageException 예외 발생
+        if upload_result['status'] == 'error':
+            raise ImageException(image_name=image_name, message=upload_result['message'])
+
+        # 2. 변환된 이미지 저장
         converted_img = remove(np.array(image))
 
         upload_result = self.s3_service.upload_image_to_s3(image=Image.fromarray(converted_img), image_dir=self.image_dir, image_name=image_name, format='PNG')
