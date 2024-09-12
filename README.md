@@ -28,4 +28,5 @@ docker run -p 8000:8000 \
   nftlix-ai
 ```
 
-
+## 🧩 System Architecture
+![ai architecture](https://github.com/user-attachments/assets/98cabeb1-18dc-4f38-81d8-15043c23aa92)
