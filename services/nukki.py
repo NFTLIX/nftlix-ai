@@ -26,7 +26,7 @@ class NukkiService:
         # 2. 변환된 이미지 저장
         converted_img = remove(np.array(image))
 
-        upload_result = self.s3_service.upload_image_to_s3(image=Image.fromarray(converted_img), image_dir=self.image_dir, image_name=image_name, format='PNG')
+        upload_result = self.s3_service.upload_image_to_s3(image=Image.fromarray(converted_img), image_dir=self.image_dir, image_name=image_name)
 
         # s3 업로드 도중 에러 발생 시 ImageException 예외 발생
         if upload_result['status'] == 'error':
